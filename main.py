@@ -8,8 +8,8 @@ class Booking(BaseModel):
   user_id: int
   room_id: int
   booked_num: int
-  start_date: datetime.datetime
-  end_date: datetime.datetime
+  start_datetime: datetime.datetime
+  end_datetime: datetime.datetime
 
 # ユーザー情報を管理するモデル
 class User(BaseModel):
