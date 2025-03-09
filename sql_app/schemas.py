@@ -2,29 +2,35 @@ import datetime
 from pydantic import BaseModel, Field
 
 # 予約情報を管理するモデル
-class Booking(BaseModel):
-  booking_id: int
+class BookingCreate(BaseModel):
   user_id: int
   room_id: int
   booked_num: int
   start_datetime: datetime.datetime
   end_datetime: datetime.datetime
 
+class Booking(BookingCreate):
+  booking_id: int
+
   class Config:
     orm_mode = True
 
 # ユーザー情報を管理するモデル
-class User(BaseModel):
-  user_id: int
+class UserCreate(BaseModel):
   user_name: str = Field(max_length=12)
+
+class User(UserCreate):
+  user_id: int
 
   class Config:
     orm_mode = True
 
-class Room(BaseModel):
-  room_id: int
+class RoomCreate(BaseModel):
   room_name: str = Field(max_length=12)
   capacity: int
+
+class Room(RoomCreate):
+  room_id: int
 
   class Config:
     orm_mode = True

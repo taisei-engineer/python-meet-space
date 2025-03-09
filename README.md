@@ -22,7 +22,7 @@ FastAPI を使用したバックエンド API と、Streamlit を使用したテ
 ### バックエンド API の起動
 
 ```bash
-uvicorn main:app --reload
+uvicorn sql_app.main:app --reload
 ```
 
 ### フロントエンドの起動

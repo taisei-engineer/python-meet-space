@@ -14,8 +14,8 @@ def get_bookings(db: Session, skip: int = 0, limit: int = 10):
   return db.query(models.Booking).offset(skip).limit(limit).all()
 
 # ユーザー登録
-def create_user(db: Session, user: schemas.User):
-  db_user = models.User(username=user.username)
+def create_user(db: Session, user: schemas.UserCreate):
+  db_user = models.User(user_name=user.user_name)
   db.add(db_user)
   db.commit()
   db.refresh(db_user)
